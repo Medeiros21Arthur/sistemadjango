@@ -1,6 +1,9 @@
 
 from pathlib import Path
 
+# Define para onde o usuário não logado será enviado
+LOGIN_URL = '/login/'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,7 +41,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    'usuarios.middleware.LoginRequiredMiddleware',  # ✅ nosso middleware
+    ]
 
 ROOT_URLCONF = 'qtv.urls'
 
@@ -129,3 +133,4 @@ MESSAGE_TAGS = {
     constants.SUCCESS: 'bg-green-50 text-green-700',
     constants.ERROR: 'bg-red-50 text-red-700'
 }
+LOGIN_URL = '/login/' 
